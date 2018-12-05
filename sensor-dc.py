@@ -44,8 +44,8 @@ print(suhu, kelembaban, sensor_id)
 # Inisialisasi koneksi ke database mysql
 mydb = mysql.connector(
 	host="localhost",
-	user="sensor_dc",
+	user="sensor",
 	passwd="P4ssword",
-	database="sensor"
+	database="sensor_dc"
 )
 print(mydb)
