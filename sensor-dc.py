@@ -48,3 +48,18 @@ mydb = mysql.connector.connect(
 	passwd="P4ssword",
 	database="sensor"
 )
+
+## In order to put our new connnection to good use we need to create a cursor object. 
+# The cursor object is an abstraction specified in the Python DB-API 2.0. 
+# It gives us the ability to have multiple seperate working environments through the same connection to the database
+mycursor = mydb.cursor()
+
+# sql query untuk melakukan insert ke table sensor_dc_log database
+sql = "INSERT INTO sensor_dc_log (id, temperature, humidity, log_time) VALUES (%s, %s, %s, %s)"
+val = (sensor_id, suhu, kelembaban, log_time)
+
+# Commit untuk melakukan perubahan pada table
+mydb.commit()
+
+# print jika berhasil ...
+print("Data pada tanggal: " + str(log_time) + " telah dimasukan! :)")
