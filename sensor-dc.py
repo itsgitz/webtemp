@@ -46,6 +46,6 @@ mydb = mysql.connector(
 	host="localhost",
 	user="sensor",
 	passwd="P4ssword",
-	database="sensor_dc"
+	database="sensor"
 )
 print(mydb)
