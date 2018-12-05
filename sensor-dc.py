@@ -32,7 +32,7 @@ bulan = log_time.month
 jam = log_time.hour
 menit = log_time.minute
 detik = log_time.second
-sensor_id = bulan + jam + menit + detik
+sensor_id = str(bulan) + str(jam) + str(menit) + str(detik)
 
 print(suhu, kelembaban, sensor_id)
 
@@ -48,4 +48,3 @@ mydb = mysql.connector.connect(
 	passwd="P4ssword",
 	database="sensor"
 )
-print(mydb)
