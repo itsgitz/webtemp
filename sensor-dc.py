@@ -57,6 +57,7 @@ mycursor = mydb.cursor()
 # sql query untuk melakukan insert ke table sensor_dc_log database
 sql = "INSERT INTO sensor_dc_log (id, temperature, humidity, log_time) VALUES (%s, %s, %s, %s)"
 val = (sensor_id, suhu, kelembaban, log_time)
+mycursor.execute(sql, val)
 
 # Commit untuk melakukan perubahan pada table
 mydb.commit()
