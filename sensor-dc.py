@@ -20,22 +20,32 @@ import datetime
 # 4. Maka parameter fungsi yang digunakan adalah:
 #    dht.read_retry(jenis_sensor, pin_yang_digunakan)
 kelembaban, suhu = dht.read_retry(dht.AM2302, 25)
-
-# Agar suhu yang dikeluarkan sensor menjadi real-time, maka
-# menggunakan pengulangan
-#while True:
-#print('Suhu: {0:0.1f}*C'.format(suhu))
-#print('Kelembaban: {0:0.1f}%'.format(kelembaban))
-
 suhu = '{0:0.1f}*C'.format(suhu)
 kelembaban = '{0:0.1f}%'.format(kelembaban)
 
 # Variable "now" untuk menghasilkan waktu sekarang/saat sensor suhu aktif
 log_time = datetime.datetime.now()
 
-print(log_time)
+# Randomed ID for sensor_id on table
+# bulan+jam+menit+detik
+bulan = log_time.month
+jam = log_time.hour
+menit = log_time.minute
+detik = log_time.second
+sensor_id = bulan + jam + menit + detik
+
+print(suhu, kelembaban, sensor_id)
 
 # Database: sensor
 # Table: sensor_dc_log
 # Columns:
 # | id | temperature | humidity | log_time |
+
+# Inisialisasi koneksi ke database mysql
+mydb = mysql.connector(
+	host="localhost",
+	user="sensor",
+	passwd="P4ssword",
+	database="sensor"
+)
+print(mydb)
