@@ -20,8 +20,8 @@ import datetime
 # 4. Maka parameter fungsi yang digunakan adalah:
 #    dht.read_retry(jenis_sensor, pin_yang_digunakan)
 kelembaban, suhu = dht.read_retry(dht.AM2302, 25)
-suhu = '{0:0.1f}*C'.format(suhu)
-kelembaban = '{0:0.1f}%'.format(kelembaban)
+suhu = '{0:0.1f}'.format(suhu)
+kelembaban = '{0:0.1f}'.format(kelembaban)
 
 # Variable "now" untuk menghasilkan waktu sekarang/saat sensor suhu aktif
 log_time = datetime.datetime.now()
